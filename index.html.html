@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Revolution: Accelerated Market Projections</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --tertiary: #e74c3c;
+            --quaternary: #f39c12;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --highlight: #9b59b6;
+            --text: #333;
+            --bg: #f8f9fa;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h1 {
+            color: var(--dark);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: var(--dark);
+            font-size: 1.8rem;
+            margin: 30px 0 20px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .intro {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 60px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: var(--dark);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            opacity: 1;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-item:nth-child(1) .timeline-content { border-left: 5px solid var(--primary); }
+        .timeline-item:nth-child(2) .timeline-content { border-left: 5px solid var(--secondary); }
+        .timeline-item:nth-child(3) .timeline-content { border-left: 5px solid var(--tertiary); }
+        .timeline-item:nth-child(4) .timeline-content { border-left: 5px solid var(--quaternary); }
+        .timeline-item:nth-child(5) .timeline-content { border-left: 5px solid var(--highlight); }
+        
+        .timeline-item .date {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            font-weight: bold;
+            border-radius: 20px;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(1) .date { background-color: var(--primary); }
+        .timeline-item:nth-child(2) .date { background-color: var(--secondary); }
+        .timeline-item:nth-child(3) .date { background-color: var(--tertiary); }
+        .timeline-item:nth-child(4) .date { background-color: var(--quaternary); }
+        .timeline-item:nth-child(5) .date { background-color: var(--highlight); }
+        
+        .timeline-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .timeline-content p {
+            margin-bottom: 15px;
+        }
+        
+        .market-value {
+            font-weight: bold;
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        .market-value span {
+            color: var(--tertiary);
+            font-size: 1.4rem;
+        }
+        
+        .chart-container {
+            margin: 50px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .chart-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #777;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .chart-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .chart-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .chart-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .market-segments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .segment {
+            flex: 1 1 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .segment:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .segment h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .segment-chart {
+            height: 200px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .growth-bar {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            background: linear-gradient(to top, var(--secondary), var(--primary));
+            border-radius: 5px 5px 0 0;
+            transition: height 1s ease;
+        }
+        
+        .growth-value {
+            position: absolute;
+            top: -25px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .year-2025 { left: 50px; height: 40px; }
+        .year-2028 { left: 100px; height: 90px; }
+        .year-2031 { left: 150px; height: 140px; }
+        .year-2035 { left: 200px; height: 180px; }
+        
+        .conclusion {
+            margin-top: 60px;
+            padding: 30px;
+            background: var(--dark);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .conclusion h2 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .impact-card {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .impact-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .impact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Interactive elements */
+        .progress-bar {
+            margin: 15px 0;
+            height: 25px;
+            background: #eee;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            border-radius: 20px;
+            transition: width 1s ease;
+            position: relative;
+        }
+        
+        .progress-1 { width: 25%; background: var(--primary); }
+        .progress-2 { width: 55%; background: var(--secondary); }
+        .progress-3 { width: 75%; background: var(--tertiary); }
+        .progress-4 { width: 90%; background: var(--quaternary); }
+        .progress-5 { width: 99%; background: var(--highlight); }
+        
+        .progress span {
+            position: absolute;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+        }
+        
+        .stat-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            position: relative;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .stat-circle::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border-radius: 50%;
+            border: 5px solid transparent;
+            border-top-color: var(--tertiary);
+            border-right-color: var(--tertiary);
+            animation: rotate 2s linear infinite;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--dark);
+            z-index: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #777;
+            z-index: 1;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .cost-comparison {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        
+        .cost-card {
+            flex: 1;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .cost-card h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .cost-amount {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 10px 0;
+            color: var(--tertiary);
+        }
+        
+        .cost-card.robot .cost-amount {
+            color: var(--secondary);
+        }
+        
+        .savings {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .household-calc {
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+        }
+        
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        
+        .calc-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+        }
+        
+        .calc-label {
+            font-weight: 600;
+        }
+        
+        .calc-value {
+            color: var(--dark);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item, .timeline-item:nth-child(even) {
+                justify-content: flex-start;
+                margin-left: 60px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+            }
+            
+            .timeline-item .date {
+                left: 30px;
+                transform: translateX(-50%);
+            }
+            
+            .cost-comparison {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Robotics Revolution: Accelerated Market Projections</h1>
+            <p class="tagline">The trillion-dollar impact of advanced robotics in household and commercial applications</p>
+        </header>
+        
+        <section class="intro">
+            <p>As advanced robotics technology matures at a pace faster than Moore's Law, we're entering an era where humanoid robots priced at around $30,000 (comparable to an affordable new car) will transform both households and businesses. These robots represent one of the largest potential markets in human history, with full integration possible within just 12 years.</p>
+            <p>When calculating the true market potential, we must consider the <strong>effective hourly cost</strong> of robot labor compared to human alternatives. At approximately $1 per hour or less (factoring in purchase price, energy, and maintenance over lifespan), robots will provide an overwhelming economic incentive for mass adoption across all sectors.</p>
+        </section>
+        
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="date">2025-2026</div>
+                <div class="timeline-content">
+                    <h3>Household Assistance Phase</h3>
+                    <p>Bipedal robots capable of handling basic household chores: cleaning, dishwashing, laundry, and basic meal prep. Following Tesla's lead, these first commercial models focus on domestic tasks.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-1"><span>25%</span></div>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="cost-card">
+                            <h4>Human Housekeeping</h4>
+                            <div class="cost-amount">$25/hour</div>
+                            <p>Average cost for maid service</p>
+                        </div>
+                        
+                        <div class="cost-card robot">
+                            <h4>Robot Alternative</h4>
+                            <div class="cost-amount">$1/hour</div>
+                            <p>Amortized cost over robot lifespan</p>
+                        </div>
+                    </div>
+                    
+                    <p>Early adoption focused on high-income households, but rapid price decreases drive wider market penetration.</p>
+                    <p class="market-value">Estimated Market Value: <span>$220 Billion</span></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2027-2028</div>
+                <div class="timeline-content">
+                    <h3>Cooking & Basic Labor Phase</h3>
+                    <p>Robots advance to handle cooking, outdoor tasks and simple manual labor: lawn mowing, fence installation, basic gardening, grocery bagging, and cart collection. Robot rental services emerge for specialized tasks.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-2"><span>55%</span></div>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="cost-card">
+                            <h4>Human Chef + Labor</h4>
+                            <div class="cost-amount">$35/hour</div>
+                            <p>Combined service costs</p>
+                        </div>
+                        
+                        <div class="cost-card robot">
+                            <h4>Robot Alternative</h4>
+                            <div class="cost-amount">$1/hour</div>
+                            <p>Plus ingredients/materials</p>
+                        </div>
+                    </div>
+                    
+                    <p>Significant impact on entry-level service jobs, with businesses rapidly adopting robots for simple tasks. Middle-income households begin mass adoption.</p>
+                    <p class="market-value">Estimated Market Value: <span>$620 Billion</span></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2029-2030</div>
+                <div class="timeline-content">
+                    <h3>Advanced Labor Phase</h3>
+                    <p>Robots capable of more complex construction tasks: building free-standing structures, painting houses, basic carpentry, and landscaping. Robot rental services become mainstream for construction projects.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-3"><span>75%</span></div>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="cost-card">
+                            <h4>Construction Labor</h4>
+                            <div class="cost-amount">$45/hour</div>
+                            <p>Average construction costs</p>
+                        </div>
+                        
+                        <div class="cost-card robot">
+                            <h4>Robot Alternative</h4>
+                            <div class="cost-amount">$2/hour</div>
+                            <p>Including specialized attachments</p>
+                        </div>
+                    </div>
+                    
+                    <p>Nearly universal household adoption in developed nations. Construction industry transformation accelerates.</p>
+                    <p class="market-value">Estimated Market Value: <span>$1.5 Trillion</span></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2031-2033</div>
+                <div class="timeline-content">
+                    <h3>Skilled Trade Phase</h3>
+                    <p>Robots master skilled bipedal work: plumbing, HVAC installation, electrical work, and specialized construction. Downloadable skill packages become a major market. Companies emerge specializing in robot training and certification.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-4"><span>90%</span></div>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="cost-card">
+                            <h4>Skilled Trades</h4>
+                            <div class="cost-amount">$75/hour</div>
+                            <p>Average plumbing/electrical costs</p>
+                        </div>
+                        
+                        <div class="cost-card robot">
+                            <h4>Robot Alternative</h4>
+                            <div class="cost-amount">$3/hour</div>
+                            <p>Including specialized software</p>
+                        </div>
+                    </div>
+                    
+                    <p>Multiple robots per household becomes common in developed nations. Major disruption to skilled labor markets with 75%+ replacement rates.</p>
+                    <p class="market-value">Estimated Market Value: <span>$3.2 Trillion</span></p>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="date">2034-2037</div>
+                <div class="timeline-content">
+                    <h3>Full Integration Phase</h3>
+                    <p>Robots become capable of almost any physical task previously performed by humans. Downloadable skills library expands dramatically. Robot-as-a-Service (RaaS) becomes dominant business model alongside ownership.</p>
+                    <div class="progress-bar">
+                        <div class="progress progress-5"><span>99%</span></div>
+                    </div>
+                    
+                    <div class="cost-comparison">
+                        <div class="cost-card">
+                            <h4>Human Workforce</h4>
+                            <div class="cost-amount">$Trillions</div>
+                            <p>Total human labor costs</p>
+                        </div>
+                        
+                        <div class="cost-card robot">
+                            <h4>Robot Alternative</h4>
+                            <div class="cost-amount">90% Savings</div>
+                            <p>Across nearly all physical labor</p>
+                        </div>
+                    </div>
+                    
+                    <p>Universal adoption in developed nations. Multiple specialized robots per household and business becomes standard.</p>
+                    <p class="market-value">Estimated Market Value: <span>$8.5 Trillion</span></p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="household-calc">
+            <h2>Global Household Adoption Calculation</h2>
+            <div class="calc-row">
+                <div class="calc-label">Developed World Households:</div>
+                <div class="calc-value">~450 million households</div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-label">Average Robot Cost (2035):</div>
+                <div class="calc-value">$15,000 (with declining prices)</div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-label">Average Robots Per Household:</div>
+                <div class="calc-value">2.5 robots</div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-label">Household Adoption Rate (2035):</div>
+                <div class="calc-value">85%</div>
+            </div>
+            <div class="calc-row">
+                <div class="calc-label">Household Robot Market Size:</div>
+                <div class="calc-value">$14.3 Trillion cumulative by 2035</div>
+            </div>
+        </section>
+        
+        <section class="chart-container">
+            <h2>Market Projections By Segment</h2>
+            <div class="chart-tabs">
+                <button class="chart-tab active" onclick="showChart('market-growth')">Market Growth</button>
+                <button class="chart-tab" onclick="showChart('adoption-rate')">Adoption Rate</button>
+                <button class="chart-tab" onclick="showChart('job-impact')">Employment Impact</button>
+            </div>
+            
+            <div id="market-growth" class="chart-content active">
+                <div style="height: 400px; background: #f9f9f9; border-radius: 10px; padding: 20px; position: relative;">
+                    <!-- Simplified market growth visualization -->
+                    <div style="position: absolute; bottom: 40px; left: 50px; width: 80%; height: 300px;">
+                        <!-- Y-axis -->
+                        <div style="position: absolute; left: -40px; top: 0; height: 100%; width: 1px; background: #333;"></div>
+                        <!-- X-axis -->
+                        <div style="position: absolute; bottom: -20px; left: 0; width: 100%; height: 1px; background: #333;"></div>
+                        
+                        <!-- Market growth curve -->
+                        <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                            <path d="M0,100 C10,90 20,75 30,60 C40,45 50,25 70,10 C80,5 90,2 100,0" stroke="var(--tertiary)" stroke-width="3" fill="none" />
+                            <path d="M0,100 C10,90 20,75 30,60 C40,45 50,25 70,10 C80,5 90,2 100,0" stroke="transparent" stroke-width="0" fill="url(#gradient)" opacity="0.3" />
+                            <defs>
+                                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:var(--tertiary);stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:var(--tertiary);stop-opacity:0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        
+                        <!-- Years -->
+                        <div style="position: absolute; bottom: -40px; left: 0%;">2025</div>
+                        <div style="position: absolute; bottom: -40px; left: 25%;">2028</div>
+                        <div style="position: absolute; bottom: -40px; left: 50%;">2031</div>
+                        <div style="position: absolute; bottom: -40px; left: 75%;">2035</div>
+                        
+                        <!-- Values -->
+                        <div style="position: absolute; left: -80px; top: 0%;">$10T</div>
+                        <div style="position: absolute; left: -80px; top: 33%;">$6T</div>
+                        <div style="position: absolute; left: -80px; top: 66%;">$2T</div>
+                        <div style="position: absolute; left: -80px; top: 100%;">$0</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px;">Global robotics market projection showing hyper-exponential growth as capabilities advance</p>
+            </div>
+            
+            <div id="adoption-rate" class="chart-content">
+                <div style="height: 400px; background: #f9f9f9; border-radius: 10px; padding: 20px; display: flex; justify-content: space-around; align-items: flex-end;">
+                    <!-- Adoption rate bars -->
+                    <div style="width: 15%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div style="width: 60%; height: 25%; background: var(--primary); border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2025</div>
+                        <div style="margin-top: 5px;">25%</div>
+                    </div>
+                    
+                    <div style="width: 15%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div style="width: 60%; height: 55%; background: var(--secondary); border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2028</div>
+                        <div style="margin-top: 5px;">55%</div>
+                    </div>
+                    
+                    <div style="width: 15%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div style="width: 60%; height: 75%; background: var(--tertiary); border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2031</div>
+                        <div style="margin-top: 5px;">75%</div>
+                    </div>
+                    
+                    <div style="width: 15%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end;">
+                        <div style="width: 60%; height: 99%; background: var(--highlight); border-radius: 5px 5px 0 0;"></div>
+                        <div style="margin-top: 10px;">2035</div>
+                        <div style="margin-top: 5px;">99%</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px;">Household adoption rates in developed nations</p>
+            </div>
+            
+            <div id="job-impact" class="chart-content">
+                <div style="height: 400px; background: #f9f9f9; border-radius:
